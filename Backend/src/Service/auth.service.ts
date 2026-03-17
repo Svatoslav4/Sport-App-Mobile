@@ -1,5 +1,5 @@
 import {prisma} from '../config/prisma.js'
-import bcrypto from 'bcrypt'
+import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 export const registerUser = async(email:string,password:string,name:string) => {
@@ -12,3 +12,17 @@ export const registerUser = async(email:string,password:string,name:string) => {
     
     return {user,token}
 } 
+
+
+export const loginUser = async(email:string,password:string,name:string) => {
+    const user = await prisma.findUnigue({where: {email}})
+    if(!user) throw new Error('User not found')
+
+    const valid = await bcrypt.compare(password,user.password)
+    if(!valid) throw new Error('Invalid password')
+    
+
+    const token = jwt.sign({userId: user.id},process.env.JWT_SECRET as string,{expiresIn:'7d'})
+
+    return {user,token}
+}
