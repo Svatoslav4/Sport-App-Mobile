@@ -5,7 +5,7 @@ import { getAllVideos, getVideoById } from "../Service/video.service.js";
 export const getVideos = async(req: Request,res: Response) => {
     try {
         const videos = await getAllVideos()
-        return res.status.(200).json(videos)
+        return res.status(200).json(videos)
     }
     
     catch(error: any) {
