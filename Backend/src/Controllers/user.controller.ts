@@ -1,9 +1,7 @@
 import { Request, Response } from 'express'
 import { getProfile } from '../Service/user.service.js'
+import { AuthRequest } from '../types/auth.user.types.js'
 
-interface AuthRequest extends Request {
-  userId?: number
-}
 
 export const profile = async (req: AuthRequest, res: Response) => {
   try {
