@@ -3,7 +3,7 @@ import  jwt  from "jsonwebtoken";
 import { AuthRequest } from "../types/auth.types.js";
 
 
-export const authmiddleware = (req:Request,res:Response,next:NextFunction) => {
+export const authMiddleware = (req:Request,res:Response,next:NextFunction) => {
     const authHeader = req.headers.authorization 
     if(!authHeader) return res.status(401).json({message: "No Token"})
     
