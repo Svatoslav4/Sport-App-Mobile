@@ -6,23 +6,19 @@ Frontend/node_modules/
 /build
 /dist
 
-# logs
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# lock files (ЗАБЕРИ, якщо працюєш в команді)
-# yarn.lock
 
-# TypeScript
 *.tsbuildinfo
 
-# OS
+
 .DS_Store
 
-# env
+
 .env
 
-# Prisma generated
 prisma/generated/
 src/generated/prisma/
